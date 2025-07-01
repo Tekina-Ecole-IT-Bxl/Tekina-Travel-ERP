@@ -1,0 +1,6 @@
+apiVersion: v2
+name: erp-api
+description: Express + Mongo micro-services for Travel-ERP
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

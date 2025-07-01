@@ -1,0 +1,45 @@
+image:
+  repository: git@github.com:Tekina-Ecole-IT-Bxl/Tekina-Travel-ERP.git
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enable: false
+  className: nginx
+  hosts:
+    - host: api.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+
+  tls: []
+
+env:
+  MONGO_URI: mongodb://mongo:27017/travel_erp
+  NODE_ENV: production
+  LOG_LEVEL: info
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enable: false
+  minReplica: 2
+  maxReplica: 5
+  targetCPUUtilizationPercentage: 65
+
+podAnnotations: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

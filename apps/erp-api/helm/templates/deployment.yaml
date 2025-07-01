@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "erp-api.fullname" . }}
+  labels: {{- include "erp-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {{- include "erp-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "erp-api.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/values.yaml") . | sha256sum }}
+    spec:
+      containers:
+        - name: erp-api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+              name: http
+          env:
+            {{- range $key, $val := .Values.env }}
+            - name: {{ $key }}
+              value: "{{ $val }}"
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /api/ping
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/ping
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources: {{- toYaml .Values.resources | nindent 12 }}
