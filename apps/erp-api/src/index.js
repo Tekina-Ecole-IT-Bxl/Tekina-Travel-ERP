@@ -1,7 +1,7 @@
-import express from "express"
-import morgan from "morgan"
-import dotenv from "dotenv"
-import routes from "./routes/index.js"
+const express = require("express")
+const morgan = require("morgan")
+const dotenv = require("dotenv")
+const routes = require("./routes/index.js")
 
 dotenv.config()
 

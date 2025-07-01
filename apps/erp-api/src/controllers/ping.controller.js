@@ -1,3 +1,3 @@
-export const ping = ( req, res ) => {
+exports.ping = ( req, res ) => {
   res.json({ status: "ok", ts: Date.now() })
 }
