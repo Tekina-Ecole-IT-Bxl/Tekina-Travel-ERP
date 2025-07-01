@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts":{
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "test": "jest --runInBand"
+     "test": "jest --runInBand"
   },
   "dependencies": {
     "dotenv": "^17.0.0",
