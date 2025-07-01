@@ -6,8 +6,8 @@ A no-nonsense travel-agency ERP that actually does its damn job.
 
 | Piece          | Tech                              | Why we give a damn                                           |
 |----------------|-----------------------------------|--------------------------------------------------------------|
-| ERP API        | Node 22 · Express · MongoDB       | Fast CRUD for users, bookings & invoices                    |
-| Accounting Svc | Node 22 · NestJS · PostgreSQL     | Real double-entry, no spreadsheet sorcery                   |
+| ERP API        | Node 20+ · Express · MongoDB       | Fast CRUD for users, bookings & invoices                    |
+| Accounting Svc | Node 20+ · NestJS · PostgreSQL     | Real double-entry, no spreadsheet sorcery                   |
 | CMS            | Strapi v5                         | Blog & marketing pages, headless AF                         |
 | Web Front      | React 18 · Vite                   | One SPA to rule them all                                    |
 | Glue           | RabbitMQ · UUIDv4 events          | Keeps Mongo & Postgres in sync without tears                |
