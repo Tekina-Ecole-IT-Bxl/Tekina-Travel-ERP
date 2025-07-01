@@ -1,0 +1,20 @@
+{
+  "name": "erp-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts":{
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "jest": "^30.0.3",
+    "supertest": "^7.1.1",
+    "nodemon": "^3.1.10"
+  }
+}
